@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Environment Check') {
+            steps {
+                sh '''
+                  echo "Running on Jenkins"
+                  uname -a
+                  docker --version
+                '''
+            }
+        }
+
+        stage('Dummy Build') {
+            steps {
+                sh 'echo "CI pipeline is working"'
+            }
+        }
+    }
+}
