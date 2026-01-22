@@ -13,7 +13,7 @@ pipeline {
                 sh '''
                   echo "Running on Jenkins"
                   uname -a
-                  docker --version
+                  whoami
                 '''
             }
         }
