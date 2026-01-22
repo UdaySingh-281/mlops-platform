@@ -23,5 +23,12 @@ pipeline {
                 sh 'echo "CI pipeline is working"'
             }
         }
+
+        stage('Docker Sanity Check') {
+            steps {
+                sh 'docker --version'
+                sh 'docker images'
+            }
+        }
     }
 }
